@@ -1,6 +1,9 @@
-﻿(function () {
+(function () {
     'use strict';
 
+    angular.module('ChamadosFront').config(['$locationProvider', function($locationProvider) {
+        $locationProvider.hashPrefix('');
+    }]);
     angular.module('ChamadosFront').config(function ($routeProvider) {
         $routeProvider
             .when('/', {
