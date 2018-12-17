@@ -7,7 +7,7 @@
     function EmpresaListagemController($rootScope, SETTINGS, BaseService) {
         var vm = this;
         vm.empresas = [];
-        var empresas;
+        var empresas = null;
         //var empresas = localStorage.getItem(SETTINGS.EMPRESAS);
         /*$scope.add = function(){
             $http.get($scope.url).then(function(response) {
@@ -15,25 +15,24 @@
                       $scope.messages.push($scope.newMessage);
             });
         };*/
-        /*$http.get("http://localhost/ChamadosAPI/api/empresa/Read.php")
+        empresas = BaseService.listar("empresa/Read.php")
         .then(function(response) {
-            empresas =  response.data.records;
-        });*/
-        empresas = BaseService.listar("empresa/Read.php");
+            empresas = response.data.records;
+            $rootScope.empresas = [];
+            if (empresas) {
+                var items = angular.fromJson(empresas);
+                angular.forEach(items, function (value) {
+                    $rootScope.empresas.push(value);
+                });
+            };
 
-        $rootScope.empresas = [];
-        
-        console.log('Fiz alguma coisa2: ' + empresas);
-        if (empresas) {
-            var items = angular.fromJson(empresas);
-            angular.forEach(items, function (value) {
-                console.log('Fiz alguma coisa3: '+value.nome);
-                console.log('Fiz alguma coisa4: '+value);
-                $rootScope.empresas.push(value);
-            });
-        }
-
-        activate();
+            activate();
+        })
+        .catch(function(error) {
+            //Do stuff if the call returned an error
+            console.log('Fiz alguma coisa Errado');
+            return error;
+        });
 
         function activate() {
             listarEmpresas();
