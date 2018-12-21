@@ -16,5 +16,9 @@
         vm.listar = function(resourceName) {
           return $http.get("http://localhost/ChamadosAPI/api/" + resourceName);
         };
+        
+        vm.add = function(resourceName) {
+          return $http.get("http://localhost/ChamadosAPI/api/" + resourceName);
+        };
     };
 })();

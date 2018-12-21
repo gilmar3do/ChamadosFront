@@ -7,8 +7,6 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th class="text-center">#</th>
-            <th class="text-left">Id</th>
             <th class="text-left">Nome</th>
             <th class="text-left">CNPJ</th>
             <th class="text-center"></th>
@@ -21,8 +19,6 @@
             </td>
         </tr>
         <tr ng-repeat="empresa in vm.empresas | filter: filter">
-            <td class="text-center">{{ empresa.id }}</td>
-            <td class="text-center">{{ empresa.id }}</td>
             <td class="text-left">{{ empresa.nome }}</td>
             <td class="text-left">{{ empresa.cnpj }}</td>
             <!--<td class="text-left">{{ produto.fornecedor }}</td>
