@@ -17,8 +17,9 @@
           return $http.get("http://localhost/ChamadosAPI/api/" + resourceName);
         };
         
-        vm.add = function(resourceName) {
-          return $http.get("http://localhost/ChamadosAPI/api/" + resourceName);
+        vm.post = function(resourceName, params) {
+          $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+          return $http.post("http://localhost/ChamadosAPI/api/" + resourceName + "/", params);
         };
     };
 })();

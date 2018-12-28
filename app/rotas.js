@@ -22,14 +22,9 @@
                 templateUrl: 'public/paginas/empresa/empresa_inclusao.html'
             })
             .when('/empresas/alteracao/:id', {
-                controller: 'EmpresaAlteracaoController',
+                controller: 'EmpresaInclusaoController',
                 controllerAs: 'vm',
-                templateUrl: 'public/paginas/empresa/empresa_alteracao.html'
-            })
-            .when('/empresas/exclusao/:id', {
-                controller: 'EmpresaExclusaoController',
-                controllerAs: 'vm',
-                templateUrl: 'public/paginas/empresa/empresa_alteracao.html'
+                templateUrl: 'public/paginas/empresa/empresa_inclusao.html'
             });
     });
 })();
