@@ -25,6 +25,11 @@
                 controller: 'EmpresaInclusaoController',
                 controllerAs: 'vm',
                 templateUrl: 'public/paginas/empresa/empresa_inclusao.html'
+            })
+            .when('/empresas/exclusao/:id', {
+                controller: 'EmpresaExclusaoController',
+                controllerAs: 'vm',
+                templateUrl: 'public/paginas/empresa/empresa_inclusao.html'
             });
     });
 })();

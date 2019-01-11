@@ -17,7 +17,6 @@
         activate();
 
         function activate() {
-            toastr.success('Teste <strong>' + vm.empresa.nome + '</strong> valor id: '+id, 'Empresa Alterada');
             if(id){
                 listarEmpresa();
             }
@@ -41,27 +40,13 @@
                 }else{
                     toastr.success('Empresa <strong>' + vm.empresa.nome + '</strong> cadastrado com sucesso', 'Empresa Cadastrada');
                 }
-                //empresas = response.data.records;
-                //$rootScope.empresas = [];
-                //if (empresas) {
-                //    var items = angular.fromJson(empresas);
-               //     angular.forEach(items, function (value) {
-                //        $rootScope.empresas.push(value);
-               //     });
-               // };
-
-                //activate();
+                $location.path('/empresas'); 
             })
             .catch(function(error) {
                 //Do stuff if the call returned an error
-                console.log('Fiz alguma coisa Errada');
+                toastr.success('Empresa <strong>' + vm.empresa.nome + '</strong> Erro na inclusão', 'Empresa Não Cadastrada');
                 return error;
-            });
-            /*toastr.success('Empresa <strong>' + vm.empresa.nome + '</strong> cadastrado com sucesso', 'Empresa Cadastrada');
-            $rootScope.empresas.push(vm.empresa);
-            localStorage.removeItem(SETTINGS.EMPRESAS);
-            localStorage.setItem(SETTINGS.EMPRESAS, angular.toJson($rootScope.empresas));*/
-            $location.path('/empresas');      
+            }); 
         }        
     };
 })();
